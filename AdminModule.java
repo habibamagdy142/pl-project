@@ -34,13 +34,13 @@ public class AdminModule {
         int id = input.nextInt();  
         input.nextLine();  
 
-        System.out.print("Enter Name: ");
+        System.out.println("Enter Name: ");
         String name = input.nextLine();
 
-        System.out.print("Enter Username: ");
+        System.out.println("Enter Username: ");
         String username = input.nextLine();
 
-        System.out.print("Enter Password: ");
+        System.out.println("Enter Password: ");
         String password = input.nextLine();
 
         System.out.println("Enter Email: ");
@@ -163,4 +163,5 @@ public class AdminModule {
         }while(choice != 5);
     }  
 }
+
 
