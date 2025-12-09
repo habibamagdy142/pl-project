@@ -43,6 +43,9 @@ public class AdminModule {
         System.out.print("Enter Password: ");
         String password = input.nextLine();
 
+        System.out.println("Enter Email: ");
+        String email = input.nextLine();
+
         System.out.println("Choose Role:");
         System.out.println("1- EMPLOYEE");
         System.out.println("2- TEAM_LEADER");
@@ -107,6 +110,9 @@ public class AdminModule {
          
          System.out.println("Enter New Password: ");
          found.password = input.nextLine();
+
+         System.out.println(Enter New Email: ");
+         found.email = input.nextLine();
          
          System.out.println("Choose New Role: ");
          System.out.println("1- EMPLOYEE");
@@ -157,3 +163,4 @@ public class AdminModule {
         }while(choice != 5);
     }  
 }
+
