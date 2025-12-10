@@ -125,10 +125,30 @@ public class AdminModule {
          
          System.out.println("User Updated Successfully.\n");
     }
-    
+    /*         SEARCH USER (ID OR USERNAME)    */
+      public void searchUser() {
+        System.out.println("Enter User ID or Username to Search: ");
+        input.nextLine();
+        String search = input.nextLine();
+
+        boolean found = false;
+
+        for (User u : users) {
+            if (String.valueOf(u.id).equals(search) || u.username.equalsIgnoreCase(search)) {
+                System.out.print("\nUser Found:" + " " + u);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("\nUser Not Found.");
+        }
+    }
+
     /*         ADMIN MENU           */
     
-    public void adminMenu(){
+      public void adminMenu(){
         int choice;
         
         do{
@@ -137,7 +157,8 @@ public class AdminModule {
             System.out.println("2- Add User");
             System.out.println("3- Update User");
             System.out.println("4- Delete User");
-            System.out.println("5- Exit");
+            System.Out.Println("5- Search User");
+            System.out.println("6- Exit");
             System.out.println("Enter Choice: ");
             choice = input.nextInt();
             
@@ -155,6 +176,9 @@ public class AdminModule {
                     deleteUser();
                     break;
                 case 5:
+                    searchUser();
+                    break;
+              case 6:
                     System.out.println("Exiting Admin Module.");
                     break;
                 default:
@@ -163,5 +187,6 @@ public class AdminModule {
         }while(choice != 5);
     }  
 }
+
 
 
