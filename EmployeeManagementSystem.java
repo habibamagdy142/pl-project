@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.mavenproject2;
 
-/**
- *
- * @author Mariam
- */
+package com.mycompany.mavenproject2;
 
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
 
 // Employee class
 class Employee extends User {
@@ -157,18 +148,7 @@ class Employee extends User {
     }
     return sb.toString();
 }
-    
-    // ===== 10. Add a Penalty (Self-report) =====
-    public String addPenalty(String reason, int severity) {
-        if (severity < 1 || severity > 5) {
-            return "Severity must be between 1 and 5!";
-        }
-        
-        penalties.add("Reason: " + reason + " | Severity: " + severity + "/5 | Date: " + getCurrentDate());
-        return "Penalty added: " + reason;
-    }
-    
-    // ===== 11. View Attendance Summary =====
+    // ===== 10. View Attendance Summary =====
     public String viewAttendanceSummary() {
         return "Employee: " + name + " (ID: " + id + ")\n" +
                "Total Hours: " + totalHours + "\n" +
@@ -179,7 +159,7 @@ class Employee extends User {
                "Penalties: " + penalties.size();
     }
     
-    // ===== 12. View Detailed Attendance =====
+    // ===== 11. View Detailed Attendance =====
     public String viewDetailedAttendance() {
     if (attendanceRecords.isEmpty()) {
         return "No attendance records.";
@@ -192,7 +172,7 @@ class Employee extends User {
     return sb.toString();
 }
     
-    // ===== 13. View Vacation Requests =====
+    // ===== 12. View Vacation Requests =====
     public String viewVacationRequests() {
     if (vacationRequests.isEmpty()) {
         return "No vacation requests.";
@@ -287,13 +267,12 @@ public class EmployeeManagementSystem {
             System.out.println("7. Complete a Task");
             System.out.println("8. Add a Task (Self-assign)");
             System.out.println("9. View My Penalties");
-            System.out.println("10. Add a Penalty (Self-report)");
-            System.out.println("11. View Attendance Summary");
-            System.out.println("12. View Detailed Attendance");
-            System.out.println("13. View Vacation Requests");
-            System.out.println("14. Save Data to File");
-            System.out.println("15. Load Data from File");
-            System.out.println("16. Exit");
+            System.out.println("10. View Attendance Summary");
+            System.out.println("11. View Detailed Attendance");
+            System.out.println("12. View Vacation Requests");
+            System.out.println("13. Save Data to File");
+            System.out.println("14. Load Data from File");
+            System.out.println("15. Exit");
             System.out.print("Enter your choice: ");
             
             try {
@@ -343,40 +322,32 @@ public class EmployeeManagementSystem {
                         
                     case 9 -> System.out.println(employee.viewPenalties());
                         
-                    case 10 -> {
-                        System.out.print("Enter penalty reason: ");
-                        String penaltyReason = scanner.nextLine();
-                        System.out.print("Enter severity (1-5): ");
-                        int severity = Integer.parseInt(scanner.nextLine());
-                        System.out.println(employee.addPenalty(penaltyReason, severity));
-                    }
+                    case 10 -> System.out.println(employee.viewAttendanceSummary());
                         
-                    case 11 -> System.out.println(employee.viewAttendanceSummary());
+                    case 11 -> System.out.println(employee.viewDetailedAttendance());
                         
-                    case 12 -> System.out.println(employee.viewDetailedAttendance());
+                    case 12 -> System.out.println(employee.viewVacationRequests());
                         
-                    case 13 -> System.out.println(employee.viewVacationRequests());
-                        
-                    case 14 -> {
+                    case 13 -> {
                         System.out.print("Enter filename to save: ");
                         String saveFile = scanner.nextLine();
                         employee.saveToFile(saveFile);
                         System.out.println("Data saved to " + saveFile);
                     }
                         
-                    case 15 -> {
+                    case 14 -> {
                         System.out.print("Enter filename to load: ");
                         String loadFile = scanner.nextLine();
                         employee.loadFromFile(loadFile);
                     }
                         
-                    case 16 -> {
+                    case 15 -> {
                         System.out.println("Goodbye!");
                         scanner.close();
                         System.exit(0);
                     }
                         
-                    default -> System.out.println("Invalid choice! Please enter 1-16.");
+                    default -> System.out.println("Invalid choice! Please enter 1-15.");
                 }
                 
             } catch (NumberFormatException e) {
@@ -386,4 +357,5 @@ public class EmployeeManagementSystem {
             }
         }
     }
+
 }
