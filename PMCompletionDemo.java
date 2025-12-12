@@ -89,6 +89,7 @@ class Project {
                 }
                 return (weightedCompleted * 100.0) / totalEstimated;
         }
+
         public void printTaskList() {
                 tasks.forEach(t -> System.out.println("  - " + t));
         }
@@ -108,19 +109,57 @@ class ProjectManagerView {
 
 public class PMCompletionDemo {
         public static void main(String[] args) {
+
+                int employeeHours = 0;
+                int teamLeaderHours = 0;
+                int projectManagerHours = 0;
+                int adminHours = 0;
+
+                Scanner input = new Scanner(System.in);
+
+                try {
+                        System.out.print("Enter completed hours for Employee Module (out of 100): ");
+                        employeeHours = Integer.parseInt(input.nextLine());
+                        if (employeeHours < 0 || employeeHours > 100)
+                                throw new IllegalArgumentException("Employee Module hours must be between 0 and 100.");
+
+                        System.out.print("Enter completed hours for Team Leader Module (out of 60): ");
+                        teamLeaderHours = Integer.parseInt(input.nextLine());
+                        if (teamLeaderHours < 0 || teamLeaderHours > 60)
+                                throw new IllegalArgumentException("Team Leader Module hours must be between 0 and 60.");
+
+                        System.out.print("Enter completed hours for Project Manager Module (out of 40): ");
+                        projectManagerHours = Integer.parseInt(input.nextLine());
+                        if (projectManagerHours < 0 || projectManagerHours > 40)
+                                throw new IllegalArgumentException("Project Manager Module hours must be between 0 and 40.");
+
+                        System.out.print("Enter completed hours for Admin Module (out of 40): ");
+                        adminHours = Integer.parseInt(input.nextLine());
+                        if (adminHours < 0 || adminHours > 40)
+                                throw new IllegalArgumentException("Admin Module hours must be between 0 and 40.");
+
+                } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter numeric values only.");
+                        return;
+
+                } catch (IllegalArgumentException e) {
+                        System.out.println("Error: " + e.getMessage());
+                        return;
+                }
+
                 Project proj = new Project("Our Project");
 
                 Task t1 = new Task("Employee Module", 100);
-                t1.setCompletedHours(70);
+                t1.setCompletedHours(employeeHours);
 
                 Task t2 = new Task("Team leader Module", 60);
-                t2.setCompletedHours(30);
+                t2.setCompletedHours(teamLeaderHours);
 
                 Task t3 = new Task("Project manager Module", 40);
-                t3.setCompletedHours(40);
+                t3.setCompletedHours(projectManagerHours);
 
                 Task t4 = new Task("Admin Module", 40);
-                t4.setCompletedHours(40);
+                t4.setCompletedHours(adminHours);
 
                 proj.addTask(t1);
                 proj.addTask(t2);
