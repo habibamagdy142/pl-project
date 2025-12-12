@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-     Employee employee = new Employee("E1001", "John Doe", "johndoe", "password123");
+     Employee employee = new Employee("2024", "lama", "lola", "password123");
 
         System.out.println("=== Employee Management System ===");
         System.out.println("Logged in as: " + employee.getName() + " (ID: " + employee.getId() + ")");
@@ -88,3 +88,4 @@ public class Main {
         }
     }
 }
+
