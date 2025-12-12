@@ -28,18 +28,14 @@ public class Employee extends User {
         this.tasks = new ArrayList<>();
         this.vacationRequests = new ArrayList<>();
         this.penalties = new ArrayList<>();
-        // try to load persisted totals (if profile file exists)
         loadProfile();
         loadAllLists();
     }
 
-    // login implementation
     @Override
     public boolean login(String inputUser, String inputPass) {
         return this.username.equals(inputUser) && this.password.equals(inputPass);
     }
-
-    // ------------------ Core actions ------------------
 
     public String clockIn() {
         if (isClockedIn) return "You are already clocked in!";
@@ -277,3 +273,4 @@ public class Employee extends User {
         return LocalDateTime.now().format(df);
     }
 }
+
