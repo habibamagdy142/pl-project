@@ -1,0 +1,5 @@
+1,admin,123,admin@mail.com,Admin User,ADMIN
+202,omar,mohamed,ow@mail.com,omar waleed,EMPLOYEE
+2024,omar,5925,ow@gmail.com,omar walid,EMPLOYEE
+2025,omar,a[oajm,sssss,wowo,EMPLOYEE
+25,po,mo,eo@gmailcom,om,EMPLOYEE
